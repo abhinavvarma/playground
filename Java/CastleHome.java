@@ -1,5 +1,3 @@
-package castleHome;
-
 import java.io.*;
 import java.util.ArrayList;
 
