@@ -10,6 +10,10 @@ class ListNode {
     ListNode(int x) {
         val = x;
     }
+
+    public String toString() {
+        return String.valueOf(val);
+    }
 }
 
 public class LC19 {

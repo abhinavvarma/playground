@@ -12,22 +12,27 @@ class Solution {
     }
 
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null){
+        if (head == null || head.next == null || k == 0){
+            return head;
+        }
+        int n = getLength(head);
+        k = k % n;
+        if (k==0) {
             return head;
         }
         ListNode ptr = head;
-        k = getLength(head)%k;
-        for (int i = 0; i< k; i++) {
+        for (int i = 1; i < n-k; i++) {
             ptr = ptr.next;
         }
-        while (ptr!= null){
-            ListNode nextNode = ptr.next;
-            ptr.next = head;
-            head = ptr;
-            ptr = nextNode;
+        ListNode rotHead = ptr.next;
+        ptr.next = null;
+        ptr = rotHead;
+        while (ptr.next != null) {
+            ptr = ptr.next;
         }
+        ptr.next = head;
 
-        return head;
+        return rotHead;
     }
 }
 
@@ -35,12 +40,12 @@ public class LC61 {
     public static void main(String[] args) {
         ListNode h = new ListNode(1);
         ListNode t = h;
-        for(int i = h.val + 1; i<= 5; i++) {
+        for(int i = h.val + 1; i<= 2; i++) {
             t.next = new ListNode(i);
             t = t.next;
         }
 
         Solution s = new Solution();
-        s.rotateRight(h, 1);
+        s.rotateRight(h, 2);
     }
 }
