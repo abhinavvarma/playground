@@ -1,16 +1,6 @@
 package lc;
 
 public class LC72 {
-    public void print2dArray(int[][] t) {
-        for (int[] x : t)
-        {
-            for (int y : x)
-            {
-                System.out.print(y + " ");
-            }
-            System.out.println();
-        }
-    }
 
     public int minDistance(String word1, String word2) {
         char[] wordA1 = word1.toCharArray();
