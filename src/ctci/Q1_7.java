@@ -100,6 +100,8 @@ class Matrix {
                 bottom(layer, i).set(right(layer, i).get());
                 right(layer, i).set(temp);
             }
+            System.out.println("---------Layer------------- " + layer);
+            Display.print2dArray(a);
         }
         return a;
     }
@@ -116,6 +118,6 @@ public class Q1_7 {
                 {30, 31, 32, 33},
         });
         int[][] a = matrix.rotate90();
-        Display.print2dArray(a);
+//        Display.print2dArray(a);
     }
 }
