@@ -1,26 +1,33 @@
 package ctci;
 
-import utils.graph.Node;
-
-import java.util.LinkedList;
+//
+//class TreeUnbalancedException extends Exception {
+//
+//}
+//
+//
+//    int getHeight(Node node) {
+//        if (node == null)
+//            return 0;
+//        int left = getHeight(node.left);
+//        int right = getHeight(node.right);
+//
+//        if (Math.abs(left - right) > 1)
+//            throw new TreeUnbalancedException();
+//        return Math.max(left, right) + 1;
+//    }
+//
+//
+//    boolean isBalancedBinaryTree(Node root) {
+//        try {
+//            getHeight(root);
+//            return true;
+//        } catch(TreeUnbalancedException te) {
+//
+//        }
+//
+//        return false;
+//    }
 
 public class Q4_1 {
-
-    public boolean search(Node s, Node e) {
-        LinkedList<Node> q = new LinkedList<>();
-        s.visited = true;
-        q.add(s);
-        while(!q.isEmpty()) {
-            Node n = q.removeFirst();
-            if (n == e)
-                return true;
-            for(Node a : n.getAdjacents()) {
-                if (!a.visited)
-                    q.add(a);
-                a.visited = true;
-            }
-        }
-
-        return false;
-    }
 }
