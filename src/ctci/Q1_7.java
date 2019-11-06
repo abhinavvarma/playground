@@ -116,6 +116,6 @@ public class Q1_7 {
                 {30, 31, 32, 33},
         });
         int[][] a = matrix.rotate90();
-        Display.print2dArray(a);
+        Display.print(a);
     }
 }

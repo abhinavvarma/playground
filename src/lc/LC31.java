@@ -12,7 +12,7 @@ public class LC31 {
         LC31 s = new LC31();
         int[] nums = { 1,5,1 };
         s.nextPermutation(nums);
-        Display.print1dArray(nums);
+        Display.print(nums);
     }
 
     private void swap(int[] nums, int i, int j) {

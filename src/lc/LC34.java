@@ -34,6 +34,6 @@ public class LC34 {
 
     public static void main(String[] args) {
         LC34 s = new LC34();
-        Display.print1dArray(s.searchRange(new int[]{5,7,7,8,8,810}, 8));
+        Display.print(s.searchRange(new int[]{5,7,7,8,8,810}, 8));
     }
 }
