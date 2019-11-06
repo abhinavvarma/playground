@@ -18,6 +18,10 @@ class LC315 {
         return (s < 0  || s >= cnts.length || e < 1 || e > cnts.length);
     }
 
+    private void move() {
+
+    }
+
     private void merge(Count[] cnts, int s1, int e1, int s2, int e2) {
         if (isOutOfBounds(cnts, s1, e1) || isOutOfBounds(cnts, s2, e2)) {
             return;
@@ -38,7 +42,7 @@ class LC315 {
             op[k++] = cnts[j++];
         }
         for (i=0;i<op.length;i++)
-            cnts[s1] = op[i];
+            cnts[s1++] = op[i];
     }
 
     private void mergeSort(Count[] cnts, int s, int e) {
