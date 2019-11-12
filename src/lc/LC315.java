@@ -4,10 +4,9 @@ import java.util.List;
 
 class Count {
     int c;
-    int i, v;
+    int v;
 
-    public Count(int originalIndex, int val) {
-        this.i = originalIndex;
+    public Count(int val) {
         this.c = 0;
         this.v = val;
     }
@@ -59,7 +58,7 @@ class LC315 {
     public List<Integer> countSmaller(int[] nums) {
         Count[] counts = new Count[nums.length];
         for (int i = 0; i<nums.length; i++) {
-            counts[i] = new Count(i, nums[i]);
+            counts[i] = new Count(nums[i]);
         }
 
         mergeSort(counts, 0, counts.length);
