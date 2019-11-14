@@ -4,10 +4,9 @@ import java.util.List;
 
 class Count {
     int c;
-    int i, v;
+    int v;
 
-    public Count(int originalIndex, int val) {
-        this.i = originalIndex;
+    public Count(int val) {
         this.c = 0;
         this.v = val;
     }
@@ -16,6 +15,10 @@ class Count {
 class LC315 {
     private boolean isOutOfBounds(Count[] cnts, int s, int e) {
         return (s < 0  || s >= cnts.length || e < 1 || e > cnts.length);
+    }
+
+    private void move() {
+
     }
 
     private void merge(Count[] cnts, int s1, int e1, int s2, int e2) {
@@ -38,7 +41,7 @@ class LC315 {
             op[k++] = cnts[j++];
         }
         for (i=0;i<op.length;i++)
-            cnts[s1] = op[i];
+            cnts[s1++] = op[i];
     }
 
     private void mergeSort(Count[] cnts, int s, int e) {
@@ -55,7 +58,7 @@ class LC315 {
     public List<Integer> countSmaller(int[] nums) {
         Count[] counts = new Count[nums.length];
         for (int i = 0; i<nums.length; i++) {
-            counts[i] = new Count(i, nums[i]);
+            counts[i] = new Count(nums[i]);
         }
 
         mergeSort(counts, 0, counts.length);

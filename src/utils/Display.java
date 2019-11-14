@@ -17,6 +17,7 @@ public class Display<T> {
             }
             System.out.println();
         }
+        System.out.flush();
     }
 
     public static void clear() {
