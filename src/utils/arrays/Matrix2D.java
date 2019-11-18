@@ -34,6 +34,6 @@ public class Matrix2D<T> {
     }
 
     public void print() {
-        new Display<T>().print2dArray(cache);
+        new Display<T>().print(cache);
     }
 }

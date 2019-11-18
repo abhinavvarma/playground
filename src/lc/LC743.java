@@ -36,7 +36,7 @@ public class LC743 {
                         shortestTimes[src][j] = timeFromSrcToJViaI;
                     }
                 }
-                new Display<Integer>().print2dArray(Boxing.toInteger2DArray(shortestTimes));
+                new Display<Integer>().print(Boxing.toInteger2DArray(shortestTimes));
             }
         }
     }
@@ -67,23 +67,23 @@ public class LC743 {
         return timeFromK;
     }
 
-    public int networkDelayTimeDijsktra(int[][] times, int N, int K) {
-        times = getRoutes(times, N);
-        PriorityQueue<int[]> queue = new PriorityQueue(((o1, o2) -> {o1}));
-        queue.add()
-        initialize(shortestTimes, IGNORE);
-        for (int r = 1; r < times.length; r++) {
-            traverse(times, shortestTimes, r);
-        }
-        int timeFromK = 0;
-        for (int c = 1; c < times[K].length; c++) {
-            if (shortestTimes[K][c] == IGNORE)
-                return -1;
-            else if(timeFromK < shortestTimes[K][c])
-                timeFromK = shortestTimes[K][c];
-        }
-        return timeFromK;
-    }
+//    public int networkDelayTimeDijsktra(int[][] times, int N, int K) {
+//        times = getRoutes(times, N);
+//        PriorityQueue<int[]> queue = new PriorityQueue(((o1, o2) -> {o1}));
+//        queue.add()
+//        initialize(shortestTimes, IGNORE);
+//        for (int r = 1; r < times.length; r++) {
+//            traverse(times, shortestTimes, r);
+//        }
+//        int timeFromK = 0;
+//        for (int c = 1; c < times[K].length; c++) {
+//            if (shortestTimes[K][c] == IGNORE)
+//                return -1;
+//            else if(timeFromK < shortestTimes[K][c])
+//                timeFromK = shortestTimes[K][c];
+//        }
+//        return timeFromK;
+//    }
 
     public static void main(String[] args) {
         LC743 l = new LC743();
