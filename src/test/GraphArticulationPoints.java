@@ -61,10 +61,12 @@ public class GraphArticulationPoints {
                     }
                 }
             }
-            if (parent == -1 && noOfChildrenInDFSTree > 1)
-                result.add(id);
-            else
-                result.remove(id);
+            if (parent == -1) {
+                if (noOfChildrenInDFSTree > 1)
+                    result.add(id);
+                else
+                    result.remove(id);
+            }
         } else {
             lowestParent = id;
         }
