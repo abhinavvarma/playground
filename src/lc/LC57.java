@@ -71,6 +71,6 @@ public class LC57 {
 
     public static void main(String[] args) {
         LC57 l = new LC57();
-        Display.print(l.insert(Input.read2DArray("[[1,5]]"), Input.read1DArray("[2,7]")));
+//        Display.print(l.insert(Input.read2DArray("[[1,5]]"), Input.read1DArray("[2,7]")));
     }
 }
