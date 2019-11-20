@@ -34,29 +34,33 @@ public class GraphArticulationPoints {
         return adj;
     }
 
-    Set<Integer> findCriticalRouters(List<List<Integer>> links, int root)
+    Set<Integer> findCriticalRouters(int root)
     {
         List<Integer> routers = new ArrayList<>(adjacencyMatrix.keySet());
         Set<Integer> unvisited = new HashSet<>(routers);
         Set<Integer> result = new HashSet<>();
-        traverse(root, -1, unvisited, result);
+        HashMap<Integer, Integer> lowestParentMap = new HashMap<>();
+        HashMap<Integer, Integer> discoveryTimeMap = new HashMap<>();
+        traverse(root, -1, unvisited, result, lowestParentMap, discoveryTimeMap);
         return result;
     }
 
-    private int traverse(Integer id, Integer parent, final Set<Integer> unvisited, Set<Integer> result) {
+    private int traverse(Integer id, Integer parent, final Set<Integer> unvisited, Set<Integer> result, HashMap<Integer, Integer> lowestParentMap, HashMap<Integer, Integer> discoveryTimeMap) {
+        System.out.println(parent + "->" + id);
         int lowestParent = Integer.MAX_VALUE;
         if (unvisited.contains(id)) {
             unvisited.remove(id);
-            int discoveryTime = ++time;
+            discoveryTimeMap.put(id, ++time);
             Set<Integer> children = adjacencyMatrix.get(id);
             int noOfChildrenInDFSTree = 0;
             for (int child : children) {
                 if (child != parent) {
                     if (unvisited.contains(child))
                         noOfChildrenInDFSTree++;
-                    int lowestParentOfChild = traverse(child, id, unvisited, result);
+                    int lowestParentOfChild = traverse(child, id, unvisited, result, lowestParentMap, discoveryTimeMap);
+                    System.out.println("LP("+child+") = " +lowestParentOfChild);
                     lowestParent = Math.min(lowestParentOfChild, lowestParent);
-                    if (lowestParentOfChild >= discoveryTime) {
+                    if (discoveryTimeMap.get(lowestParentOfChild) >= discoveryTimeMap.get(id)) {
                         result.add(id);
                     }
                 }
@@ -67,8 +71,9 @@ public class GraphArticulationPoints {
                 else
                     result.remove(id);
             }
+            lowestParentMap.put(id, lowestParent);
         } else {
-            lowestParent = id;
+            lowestParent = lowestParentMap.getOrDefault(id, id);
         }
         return lowestParent;
     }
@@ -84,7 +89,7 @@ public class GraphArticulationPoints {
                 Arrays.asList(5, 6)
         );
         GraphArticulationPoints l = new GraphArticulationPoints(links);
-        Set<Integer> integers = l.findCriticalRouters(links, 3);
+        Set<Integer> integers = l.findCriticalRouters(1);
         System.out.println(integers);
     }
 }
