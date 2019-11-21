@@ -75,6 +75,7 @@ public class GraphArticulationPoints {
         } else {
             lowestParent = lowestParentMap.getOrDefault(id, id);
         }
+        System.out.println("lowest parent of "+id+" is "+lowestParent);
         return lowestParent;
     }
 
