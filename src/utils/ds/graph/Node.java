@@ -1,4 +1,4 @@
-package utils.graph;
+package utils.ds.graph;
 
 import java.util.ArrayList;
 import java.util.List;
